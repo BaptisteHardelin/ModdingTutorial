@@ -2,6 +2,7 @@ package fr.babaprog.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import fr.babaprog.tutorialmod.block.ModBlocks;
+import fr.babaprog.tutorialmod.item.ModCreativeModTabs;
 import fr.babaprog.tutorialmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,8 +34,11 @@ public class TutorialMod {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModCreativeModTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
 
         modEventBus.addListener(this::addCreative);
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
